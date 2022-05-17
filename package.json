@@ -1,17 +1,17 @@
 {
   "name": "@namestys/infra-eth-ens-ipfs",
   "description": "Web3API ETH + ENS + IPFS Infra environment",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/namesty/infra-EthEnsIpfs.git"
   },
   "files": [
-    "docker-compose.yaml",
+    "docker-compose.yml",
     "Dockerfile",
     "dev-server",
-    "posrgres"
+    "postgres"
   ],
   "publishConfig": {
     "access": "public"
