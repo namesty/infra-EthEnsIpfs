@@ -1,13 +1,7 @@
 import { deployENS } from "./ens/deployENS";
 
-const Web3 = require("web3");
-const express = require("express");
-
-const getWeb3 = () => {
-  return new Web3(
-    new Web3.providers.HttpProvider(`http://localhost:8545`)
-  );
-}
+import express from "express";
+import { ethers} from "ethers";
 
 const app = express();
 const router = express.Router();
@@ -29,16 +23,6 @@ router.get('/providers', (req, res) => {
 });
 
 router.get('/ens', (req, res) => {
-  res.send({
-    ensAddress: addresses.ensAddress
-  });
-});
-
-router.get('/deploy-ens', async (req, res) => {
-  const web3 = getWeb3();
-  const accounts = await web3.eth.getAccounts();
-  addresses = await deployENS(web3, accounts);
-
   res.send(addresses);
 });
 
@@ -49,6 +33,18 @@ router.get('/status', (req, res) => {
 });
 
 app.use('/', router);
-app.listen(4040, () => {
-  console.log(`dev-server now listening on port 4040...`);
-});
+
+(async () => {
+  const provider = new ethers.providers.JsonRpcProvider(process.env.ganache ? 
+    `http://${process.env.ganache}`: `http://localhost:8545`
+  )
+  console.log("Waiting for RPC node...")
+  
+  await provider.ready
+
+  addresses = await deployENS(provider);
+
+  app.listen(4040, async () => {
+    console.log(`dev-server now listening on port 4040...`);
+  });
+})()

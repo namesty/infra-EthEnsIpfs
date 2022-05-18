@@ -8,6 +8,9 @@ services:
       - ganache
     environment:
       ganache: 'ganache:8545'
+    depends_on:
+      - "ganache"
+    command: ["./wait-for-it.sh", "ganache:8545", "--", "yarn", "start"]
   ganache:
     image: 'trufflesuite/ganache-cli:v6.12.2'
     ports:

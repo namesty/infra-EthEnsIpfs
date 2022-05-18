@@ -5,18 +5,12 @@
   "main": "build/index.js",
   "scripts": {
     "start": "node ./build/index.js",
-    "build": "babel src -d build"
+    "build": "rimraf ./build && tsc --project tsconfig.build.json"
   },
+  "files": [
+    "build"
+  ],
   "dependencies": {
-    "@babel/cli": "7.4.4",
-    "@babel/core": "7.4.4",
-    "@babel/plugin-transform-async-to-generator": "7.4.4",
-    "@babel/plugin-transform-regenerator": "7.4.4",
-    "@babel/plugin-transform-runtime": "7.4.4",
-    "@babel/plugin-transform-spread": "7.2.2",
-    "@babel/polyfill": "7.4.4",
-    "@babel/preset-env": "7.4.4",
-    "@babel/runtime": "7.4.4",
     "@ensdomains/ens": "0.4.4",
     "@ensdomains/resolver": "0.2.4",
     "babel-plugin-add-module-exports": "1.0.0",
@@ -25,7 +19,12 @@
     "content-hash": "2.5.2",
     "eth-ens-namehash": "2.0.8",
     "express": "4.17.1",
-    "web3": "1.2.11",
-    "web3-utils": "1.2.11"
+    "ethers": "5.6.6"
+  },
+  "devDependencies": {
+    "rimraf": "3.0.2",
+    "ts-node": "8.10.2",
+    "typescript": "4.0.7",
+    "@types/express": "4.17.13"
   }
 }
