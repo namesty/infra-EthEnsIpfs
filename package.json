@@ -1,7 +1,7 @@
 {
   "name": "@namestys/infra-eth-ens-ipfs",
   "description": "Web3API ETH + ENS + IPFS Infra environment",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "repository": {
     "type": "git",
