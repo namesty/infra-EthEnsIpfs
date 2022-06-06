@@ -2,7 +2,7 @@ FROM node:10.15.3-alpine
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY ./dev-server ./
+COPY ./ens-scripts ./
 
 RUN apk --no-cache --virtual build-dependencies add \
     bash \
@@ -14,6 +14,4 @@ RUN apk --no-cache --virtual build-dependencies add \
     && yarn \
     && yarn build
 
-EXPOSE 4040
-
-ENTRYPOINT yarn start
+ENTRYPOINT yarn deployEns

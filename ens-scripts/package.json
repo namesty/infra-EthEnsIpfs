@@ -1,9 +1,9 @@
 {
-  "name": "@namestys/infra-dev-server",
+  "name": "@namestys/infra-ens-scripts",
   "version": "0.0.1",
   "main": "build/index.js",
   "scripts": {
-    "start": "node ./build/index.js",
+    "deployEns": "node ./build/index.js",
     "build": "rimraf ./build && tsc --project tsconfig.build.json"
   },
   "files": [
@@ -12,18 +12,13 @@
   "dependencies": {
     "@ensdomains/ens": "0.4.4",
     "@ensdomains/resolver": "0.2.4",
-    "babel-plugin-add-module-exports": "1.0.0",
-    "babel-polyfill": "6.26.0",
-    "babel-preset-env": "1.7.0",
     "content-hash": "2.5.2",
     "eth-ens-namehash": "2.0.8",
-    "express": "4.17.1",
     "ethers": "5.6.6"
   },
   "devDependencies": {
     "rimraf": "3.0.2",
     "ts-node": "8.10.2",
-    "typescript": "4.0.7",
-    "@types/express": "4.17.13"
+    "typescript": "4.0.7"
   }
 }
